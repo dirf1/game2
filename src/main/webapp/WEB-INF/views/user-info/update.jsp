@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>회원 수정</h3>
-<form method="POST" action="/user-info/insert">
+<form method="POST" action="/user-info/update">
 	<input type="hidden" name="uiNum" value="${userInfo.uiNum}">	
 	<input type="text" name="uiId" placeholder="아이디" value="${userInfo.uiId}"><br>
 	<input type="text" name="uiName" placeholder="이름" value="${userInfo.uiName}"><br>
