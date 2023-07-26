@@ -1,6 +1,7 @@
 package com.game.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,28 @@ public class UserInfoServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String cmd = CommonView.getCmd(request);
+		if("insert".equals(cmd)) {
+			String uiId = request.getParameter("uiId");
+			String uiName = request.getParameter("uiName");
+			String uiPwd = request.getParameter("uiPwd");
+			String uiDesc = request.getParameter("uiDesc");
+			String uiBirth = request.getParameter("uiBirth");
+			Map<String,String> userInfo = new HashMap<>();
+			userInfo.put("uiId", uiId);
+			userInfo.put("uiName", uiName);
+			userInfo.put("uiPwd", uiPwd);
+			userInfo.put("uiDesc", uiDesc);
+			userInfo.put("uiBirth", uiBirth);
+			int result = uiService.insertUserInfo(userInfo);
+			request.setAttribute("msg", "유저 등록 성공");
+			request.setAttribute("url", "/user-info/login");
+			if(result!=1) {
+				request.setAttribute("msg", "유저 등록 실패");
+				request.setAttribute("url", "/user-info/insert");
+			}
+		}
+			
 	}
 }
