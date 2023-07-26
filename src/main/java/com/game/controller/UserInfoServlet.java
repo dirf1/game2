@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,10 @@ public class UserInfoServlet extends HttpServlet {
 			String uiNum = request.getParameter("uiNum");
 			Map<String,String> userInfo = uiService.selectUserInfo(uiNum);
 			request.setAttribute("userInfo", userInfo);
+		}else if("update".equals(cmd)) {
+			String uiNum = request.getParameter("uiNum");
+			Map<String,String> userInfo = uiService.selectUserInfo(uiNum);
+			request.setAttribute("userInfo", userInfo);
 		}
 		CommonView.forward(request, response);
 	}
@@ -48,7 +53,7 @@ public class UserInfoServlet extends HttpServlet {
 			userInfo.put("uiName", uiName);
 			userInfo.put("uiPwd", uiPwd);
 			userInfo.put("uiDesc", uiDesc);
-			userInfo.put("uiBirth", uiBirth);
+			userInfo.put("uiBirth", uiBirth.replace("-", ""));
 			int result = uiService.insertUserInfo(userInfo);
 			request.setAttribute("msg", "유저 등록 성공");
 			request.setAttribute("url", "/user-info/login");
@@ -57,6 +62,6 @@ public class UserInfoServlet extends HttpServlet {
 				request.setAttribute("url", "/user-info/insert");
 			}
 		}
-			
+		CommonView.forwardMessage(request,response);
 	}
 }

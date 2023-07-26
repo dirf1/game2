@@ -12,5 +12,7 @@
 생년월일 : ${userInfo.uiBirth}<br>
 소개 : ${userInfo.uiDesc}<br>
 가입일 : ${userInfo.credat}<br>
+<button type="button" onclick="location.href='/user-info/update?uiNum=${userInfo.uiNum}'">수정</button>
+<button>삭제</button>
 </body>
 </html>
