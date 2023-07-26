@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-index.jsp
-<a href="/user-info/list">유저리스트</a>
+<h3>유저 상세화면</h3>
+이름 : ${userInfo.uiName}<br>
+생년월일 : ${userInfo.uiBirth}<br>
+소개 : ${userInfo.uiDesc}<br>
+가입일 : ${userInfo.credat}<br>
 </body>
 </html>

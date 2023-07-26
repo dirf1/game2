@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-index.jsp
-<a href="/user-info/list">유저리스트</a>
+<h3>회원 등록</h3>
 </body>
 </html>

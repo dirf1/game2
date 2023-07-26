@@ -25,6 +25,10 @@ public class UserInfoServlet extends HttpServlet {
 		if("list".equals(cmd)) {
 			List<Map<String,String>> userInfoList = uiService.selectUserInfoList(null);
 			request.setAttribute("userInfoList", userInfoList);
+		}else if("view".equals(cmd)) {
+			String uiNum = request.getParameter("uiNum");
+			Map<String,String> userInfo = uiService.selectUserInfo(uiNum);
+			request.setAttribute("userInfo", userInfo);
 		}
 		CommonView.forward(request, response);
 	}
