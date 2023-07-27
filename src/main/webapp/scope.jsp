@@ -10,14 +10,6 @@
 </head>
 <body>
 <h3>SCOPE</h3>
-<%
-Map<String,String> map = new HashMap<>();
-map.put("name","홍길동");
-map.put("age","33");
-map.put("address","seoul");
-//session.setAttribute("user", map);
-%>
-${user.name}
-${user.age}
+<div>안녕</div>
 </body>
 </html>
