@@ -11,5 +11,5 @@ public interface UserInfoService {
 	int insertUserInfo(Map<String,String> userInfo);
 	int updateUserInfo(Map<String,String> userInfo);
 	int deleteUserInfo(String uiNum);
-	boolean login(Map<String,String> userInfo, HttpSession session);
+	Map<String,String> login(String userId);
 }
