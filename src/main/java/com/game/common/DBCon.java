@@ -8,7 +8,7 @@ public class DBCon {
 
 	private static final String DRIVER_NAME = "org.mariadb.jdbc.Driver";
 	private static final String URL = "jdbc:mariadb://localhost:3306/game";
-	private static final String USER = "KDTEST";
+	private static final String USER = "root";
 	private static final String PWD = "kd1824java";
 	static {
 		try {
