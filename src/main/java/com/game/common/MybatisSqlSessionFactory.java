@@ -10,7 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.game.mapper.BoardInfoMapper;
+import com.game.mapper.UserInfoMapper;
 import com.game.vo.BoardInfoVO;
+import com.game.vo.UserInfoVO;
 
 public class MybatisSqlSessionFactory {
 
@@ -31,6 +33,10 @@ public class MybatisSqlSessionFactory {
 	}
 
 	public static void main(String[] args) {
-
+		SqlSessionFactory ssf = getSqlSessionFactory();
+		SqlSession session = ssf.openSession();
+		UserInfoMapper uiMapper = session.getMapper(UserInfoMapper.class);
+		List<UserInfoVO> list = uiMapper.selectUserInfoList(null);
+		System.out.println(list);
 	}
 }

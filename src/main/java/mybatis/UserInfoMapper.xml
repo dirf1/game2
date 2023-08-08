@@ -4,11 +4,8 @@
 
 <mapper namespace="com.game.mapper.UserInfoMapper">
 
-<select id="selectUserInfoList">
+<select id="selectUserInfoList" resultType="com.game.vo.UserInfoVO">
 SELECT * FROM user_info
 </select>
 
-
-	
-    
 </mapper>
